@@ -128,7 +128,7 @@ def undo_last_sort(target_path: str):
                 folder.rmdir()
                 print(f"🗑️ Removed empty folder {folder}")
             except OSError as e:
-                pass  # Folder not empty or other error, ignore for now
+                pass  # folder not empty or other error, ignore for now
     try: 
         history_file.unlink(missing_ok=True)  # remove the history file after undoing
     except OSError as e:
