@@ -200,23 +200,38 @@ def organize_folder(target_path):
         if moves_log:
             save_history(parent_folder, moves_log)
             
-    print(f"📁 Processed {files_processed} file(s).")
+    print(f"✅📁 Processed {files_processed} file(s).")
     if duplicates_skipped:
         print(f"⏭️ {duplicates_skipped} duplicate(s) ignored.")
     if locked_skipped:
         print(f"⏭️ {locked_skipped} file(s) skipped (locked/incomplete).")
     if moves_log:
-        print(f"📝 History saved to {parent_folder / HISTORY_FILENAME} - run undo to revert this sort.\n")
+        print(f"✅📝 History saved to {parent_folder / HISTORY_FILENAME} - run 'Undo the last sort' to revert this sort.\n")
+
+def main():
+    while True:
+        print("\n📁 Local File Organizer")
+        print("1 - Sort a folder")
+        print("2 - Undo the last sort")
+        print("3 - Exit")
+        choice = input("Choice (1/2/3): ").strip()
+
+        if choice == "3":
+            exit()
+
+        elif choice == "2":
+            target_path = input("Path of the folder to restore: ").strip()
+            undo_last_sort(target_path)
+            time.sleep(1)
             
+        elif choice == "1":
+            target_path = input("Enter the path of the folder to organize: ").strip()
+            organize_folder(target_path)
+            time.sleep(1)
+            
+        else:
+            print("❌ Please choose between 1, 2 or 3 to proceed.")
+            time.sleep(1)
+
 if __name__ == "__main__":
-    print("File Organizer")
-    print("1. Sort a folder")
-    print("2. Undo the last sort")
-    choice = input("Choice (1/2): ").strip()
-    
-    if choice == "2":
-        target_path = input("Path of the folder to restore: ").strip()
-        undo_last_sort(target_path)
-    else:
-        target_path = input("Enter the path of the folder to organize: ").strip()
-        organize_folder(target_path)
+    main()
