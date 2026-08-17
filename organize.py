@@ -214,7 +214,7 @@ def main():
         print("1 - Sort a folder")
         print("2 - Undo the last sort")
         print("3 - Exit")
-        choice = input("Choice (1/2/3): ").strip()
+        choice = input("\n> ").strip()
 
         if choice == "3":
             exit()
