@@ -134,7 +134,7 @@ def undo_last_sort(target_path: str):
     except OSError as e:
         print(f"⚠️ Cannot delete {HISTORY_FILENAME} : {e}")
             
-    print(f"\n✅📁 Restored {restored_files} files. {errors} errors occurred during restoration.")
+    print(f"\n📁 Restored {restored_files} files. {errors} errors occurred during restoration.")
         
 def organize_folder(target_path):
     parent_folder = Path(target_path)
@@ -200,13 +200,13 @@ def organize_folder(target_path):
         if moves_log:
             save_history(parent_folder, moves_log)
             
-    print(f"✅📁 Processed {files_processed} file(s).")
+    print(f"\n📁 Processed {files_processed} file(s).")
     if duplicates_skipped:
         print(f"⏭️ {duplicates_skipped} duplicate(s) ignored.")
     if locked_skipped:
         print(f"⏭️ {locked_skipped} file(s) skipped (locked/incomplete).")
     if moves_log:
-        print(f"✅📝 History saved to {parent_folder / HISTORY_FILENAME} - run 'Undo the last sort' to revert this sort.\n")
+        print(f"📝 History saved to {parent_folder / HISTORY_FILENAME} - run 'Undo the last sort' to revert this sort.\n")
 
 def main():
     while True:
