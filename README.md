@@ -41,7 +41,7 @@ Downloads/
 └── Archives/ 
     └── archive.zip
 ```
-Unknown or unspecified file types are moved to:
+Unknown or unspecified file types in ```FILE_CATEGORIES``` are moved to:
 ```
 Others/
 ```
