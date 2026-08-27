@@ -1,4 +1,4 @@
-# 📁 Local File Organizer
+# 📁 Lightweight Local File Organizer
 A lightweight Python script that automatically organizes messy folders by file type, with duplicate protection, locked-file handling, and undo support.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
